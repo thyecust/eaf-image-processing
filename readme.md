@@ -1,3 +1,2 @@
-# EAF Image Processing DEMO
-
-thy@mail.ecust.edu.cn
+# eaf-image-processing
+EAF Application for image processing
