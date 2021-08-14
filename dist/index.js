@@ -124,22 +124,34 @@ const createCircle = (canvas) => {
 const saveCanvas = (canvas) => {
     const lowerCanvas = document.getElementsByTagName('canvas')[0]
     let a = document.createElement('a')
-    let canvasURL
-    lowerCanvas.toBlob((blob) => {
-        canvasURL = URL.createObjectURL(blob)
-        a.href = canvasURL
+    let canvasURL = lowerCanvas.toDataURL()
+    a.href = canvasURL
         a.download = ''
         a.click()
-        console.log(canvasURL)
-    })
-    
+        console.log(canvasURL)    
 }
+
 
 const canvas = initCanvas('canvas')
 let mousePressed = false
 let currentMode = ''
 let color = '#000000'
+let inputReader = new FileReader
 
-setBackgroundImage('image/valley.jpg', canvas)
+inputReader.onload = (event) => {
+    let url = event.target.result
+    console.log(url)
+    setBackgroundImage(url, canvas)
+}
+
+//setBackgroundImage('image/valley.jpg', canvas)
 setEvents(canvas)
 setColorListener()
+
+const input = document.getElementById('file')
+input.addEventListener('change', (event) => {
+    console.log(event.target.files)
+    let file = event.target.files[0]
+    inputReader.readAsDataURL(file)
+
+})

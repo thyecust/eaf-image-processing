@@ -25,6 +25,11 @@ import os
 
 class AppBuffer(BrowserBuffer):
     def __init__(self, buffer_id, url, arguments):
+        print(f'EAF Image Processing buffer-id: {buffer_id}')
+
         BrowserBuffer.__init__(self, buffer_id, url, arguments, False)
 
         self.load_index_html(__file__)
+    
+    def foo(self):
+        return "hello from im foo"

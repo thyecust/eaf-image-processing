@@ -80,11 +80,18 @@
 ;;; Code:
 
 ;;;###autoload
+(defcustom eaf-image-processing-keybinding
+  '(("<f12>" . "open_devtools")
+    )
+  "The keybinding of EAF Image Processing."
+  :type 'cons)
+
 (defun eaf-open-image-processing ()
   "Open EAF Image Processing"
   (interactive)
   (eaf-open "eaf-image-processing" "image-processing"))
 
+(add-to-list 'eaf-app-binding-alist '("image-processing" . eaf-image-processing-keybinding))
 (setq eaf-image-processing-module-path (concat (file-name-directory load-file-name) "buffer.py"))
 (add-to-list 'eaf-app-module-path-alist '("image-processing" . eaf-image-processing-module-path))
 
