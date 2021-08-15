@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<head>
+<link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+
+    Hello tianh
+
+    <input id="file" type="file"></input>
+
+    <button onclick="toggleMode(modes.pan)">Pan</button>
+    <button onclick="toggleMode(modes.drawing)">Drawing</button>
+    Color: <input id="color" value="#000000" data-jscolor="">
+    <button onclick="clearCanvas(canvas)">Clear</button>
+    <button onclick="saveCanvas(canvas)">Save</button>
+
+    <canvas id="canvas"></canvas>
+
+    Objects:
+    <button onclick="createRect(canvas)">Rect</button>
+    <button onclick="createCircle(canvas)">Circle</button>
+
+    <script src="/lib/jscolor.js"></script>
+    <script src="/lib/fabric.min.js"></script>
+    <script src="/index.js"></script>
+    
+</body>
